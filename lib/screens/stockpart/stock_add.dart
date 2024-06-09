@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -50,7 +49,7 @@ class _StockAddState extends State<StockAdd> {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
@@ -59,34 +58,45 @@ class _StockAddState extends State<StockAdd> {
               children: [
                 TextFormField(
                   controller: _titleController,
-                  decoration: InputDecoration(labelText: "Stok Başlığı"),
+                  decoration: InputDecoration(
+                      labelText: "Stok Başlığı",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Lütfen bir stok başlığı girin';
+                      return 'Lütfen bir Stok Başlığı girin';
                     }
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _quantityController,
                   keyboardType: TextInputType.number,
-                  decoration: InputDecoration(labelText: "Stok Adedi"),
+                  decoration: InputDecoration(
+                      labelText: "Stok Adedi",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Lütfen bir stok adedi girin';
+                      return 'Lütfen bir Stok Adedi girin';
                     }
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _shelfNumberController,
-                  decoration: InputDecoration(labelText: "Raf Numarası"),
+                  decoration: InputDecoration(
+                      labelText: "Raf Numarası",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Raf Numanası girin';
@@ -94,12 +104,15 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _valueEController,
-                  decoration: InputDecoration(labelText: "Value"),
+                  decoration: InputDecoration(
+                      labelText: "Value",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Value girin';
@@ -107,12 +120,15 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _voltageController,
-                  decoration: InputDecoration(labelText: "Voltage"),
+                  decoration: InputDecoration(
+                      labelText: "Voltage",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Voltage başlığı girin';
@@ -120,12 +136,15 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _wattController,
-                  decoration: InputDecoration(labelText: "Watt"),
+                  decoration: InputDecoration(
+                      labelText: "Watt",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Watt başlığı girin';
@@ -133,12 +152,15 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _toleransController,
-                  decoration: InputDecoration(labelText: "Tolerans"),
+                  decoration: InputDecoration(
+                      labelText: "Tolerans",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Tolerans başlığı girin';
@@ -146,12 +168,15 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 TextFormField(
                   controller: _footPrintController,
-                  decoration: InputDecoration(labelText: "Foot Print"),
+                  decoration: InputDecoration(
+                      labelText: "Foot Print",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Lütfen bir Foot Print başlığı girin';
@@ -159,16 +184,14 @@ class _StockAddState extends State<StockAdd> {
                     return null;
                   },
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 ElevatedButton(
                   onPressed: () => _pickImage(ImageSource.camera),
-                  child: Text('Kameradan Fotoğraf Yükle'),
+                  child: const Text('Kameradan Fotoğraf Yükle'),
                 ),
                 ElevatedButton(
                   onPressed: () => _pickImage(ImageSource.gallery),
-                  child: Text('Galeriden Fotoğraf Yükle'),
+                  child: const Text('Galeriden Fotoğraf Yükle'),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 if (_imageFiles.isNotEmpty)
@@ -188,7 +211,7 @@ class _StockAddState extends State<StockAdd> {
                       );
                     },
                   ),
-                SizedBox(height: 16),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate() &&

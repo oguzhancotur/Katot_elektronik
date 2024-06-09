@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:katot_elektronik/screens/homepage.dart';
 import 'package:katot_elektronik/screens/jobpart/job_tracking.dart';
+import 'package:katot_elektronik/screens/profile.dart';
 import 'package:katot_elektronik/screens/stockpart/stock_tracking.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _MyHomePageState extends State<MainScreen> {
     JobTracking(),
     Homepage(),
     StockTracking(),
+    Profile()
   ];
 
   // Seçilen sayfayı güncelleyen metot
@@ -43,8 +45,13 @@ class _MyHomePageState extends State<MainScreen> {
             icon: Icon(Icons.shopping_cart),
             label: 'Stock Tracking',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
         currentIndex: _selectedIndex,
+        unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.blue,
         onTap: (value) {
           _onItemTapped(value);

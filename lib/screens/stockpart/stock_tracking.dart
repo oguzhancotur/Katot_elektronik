@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:katot_elektronik/bloc/stocktrackingbloc/stocktracking_bloc.dart';
 import 'package:katot_elektronik/bloc/stocktrackingbloc/stocktracking_event.dart';
 import 'package:katot_elektronik/bloc/stocktrackingbloc/stocktracking_state.dart';
-import 'package:katot_elektronik/screens/stockpart/category_add.dart';
+import 'package:katot_elektronik/screens/stockpart/stock_add.dart';
 import 'package:katot_elektronik/widgets/category_card.dart';
 
 class StockTracking extends StatefulWidget {
@@ -38,11 +38,11 @@ class _StockTrackingState extends State<StockTracking> {
           } else if (state is StocktrackingLoaded) {
             return Container(
               child: Column(
-                  children: state.category
+                  children: state.stock
                       .map((e) => CategoryCard(
                             title: e.title,
                             image: e.image!,
-                            categoryId: e.categoryId,
+                            categoryId: e.stockId,
                             quantity: e.quantity,
                           ))
                       .toList()),
@@ -61,7 +61,7 @@ class _StockTrackingState extends State<StockTracking> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CategoryAdd(),
+                builder: (context) => StockAdd(),
               ));
         },
         child: Icon(Icons.add),

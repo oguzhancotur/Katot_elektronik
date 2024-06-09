@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:katot_elektronik/models/category_model.dart';
+import 'package:katot_elektronik/models/stock_tracking_model.dart';
 
 abstract class StocktrackingEvent {}
 
 class GetCategoriesEvent extends StocktrackingEvent {}
 
 class AddCategoriesEvent extends StocktrackingEvent {
-  final CategoryModel categoryModel;
+  final StockTrackingModel categoryModel;
   final File imageFile;
   AddCategoriesEvent({
     required this.categoryModel,

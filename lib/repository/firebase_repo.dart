@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:katot_elektronik/models/category_model.dart';
+import 'package:katot_elektronik/models/stock_tracking_model.dart';
 import 'package:katot_elektronik/models/job_tracking_model.dart';
 
 class FirestoreRepo {
@@ -82,17 +82,18 @@ class FirestoreRepo {
     }
   }
 
-  Future<List<CategoryModel>> getCategories() async {
+  Future<List<StockTrackingModel>> getCategories() async {
     final jobSnapshot =
         await firebaseFirestoreInstance.collection("categories").get();
-    final categoryList = jobSnapshot.docs.map((e) {
-      return CategoryModel.fromMap(e.data(), e.id);
+    final stockList = jobSnapshot.docs.map((e) {
+      return StockTrackingModel.fromMap(e.data(), e.id);
     }).toList();
 
-    return categoryList;
+    return stockList;
   }
 
-  Future<void> addCategory(CategoryModel categoryModel, File imageFile) async {
+  Future<void> addCategory(
+      StockTrackingModel categoryModel, File imageFile) async {
     try {
       // İş takibinin resim dosyalarını Firebase Storage'a yükle
 
@@ -109,11 +110,17 @@ class FirestoreRepo {
 
       // İş takibi verisini Firestore'a ekle
       await firebaseFirestoreInstance.collection("categories").add(
-          CategoryModel(
+          StockTrackingModel(
                   image: photoUrl,
                   title: categoryModel.title,
-                  categoryId: categoryModel.categoryId,
-                  quantity: categoryModel.quantity)
+                  stockId: categoryModel.stockId,
+                  quantity: categoryModel.quantity,
+                  shelfNumber: categoryModel.shelfNumber,
+                  footPrint: categoryModel.footPrint,
+                  tolerans: categoryModel.tolerans,
+                  valueE: categoryModel.valueE,
+                  voltage: categoryModel.voltage,
+                  watt: categoryModel.watt)
               .toMap());
     } catch (e) {
       // Hata durumunda işlemi ele al

@@ -11,7 +11,7 @@ class StocktrackingBloc extends Bloc<StocktrackingEvent, StocktrackingState> {
       emit(StocktrackingLoading());
       try {
         final categoryList = await firestoreRepo.getCategories();
-        emit(StocktrackingLoaded(category: categoryList));
+        emit(StocktrackingLoaded(stock: categoryList));
       } catch (e) {
         emit(StocktrackingError());
       }

@@ -11,6 +11,7 @@ class StockTrackingModel {
   String watt;
   String tolerans;
   String footPrint;
+  String current;
 
   StockTrackingModel({
     required this.image,
@@ -23,6 +24,7 @@ class StockTrackingModel {
     required this.watt,
     required this.tolerans,
     required this.footPrint,
+    required this.current,
   });
 
   Map<String, dynamic> toMap() {
@@ -37,22 +39,25 @@ class StockTrackingModel {
     result.addAll({'watt': watt});
     result.addAll({'tolerans': tolerans});
     result.addAll({'footPrint': footPrint});
+    result.addAll({'current': current});
 
     return result;
   }
 
   factory StockTrackingModel.fromMap(Map<String, dynamic> map, String? id) {
     return StockTrackingModel(
-        image: map['image'] ?? '',
-        title: map['title'] ?? '',
-        stockId: id ?? '',
-        quantity: map['quantity'] ?? 0,
-        footPrint: map['footPrint'] ?? '',
-        shelfNumber: map['shelfNumber'] ?? '',
-        tolerans: map['tolerans'] ?? '',
-        valueE: map['valueE'] ?? '',
-        voltage: map['voltage'] ?? '',
-        watt: map['watt'] ?? '');
+      image: map['image'] ?? '',
+      title: map['title'] ?? '',
+      stockId: id ?? '',
+      quantity: map['quantity'] ?? 0,
+      footPrint: map['footPrint'] ?? '',
+      shelfNumber: map['shelfNumber'] ?? '',
+      tolerans: map['tolerans'] ?? '',
+      valueE: map['valueE'] ?? '',
+      voltage: map['voltage'] ?? '',
+      watt: map['watt'] ?? '',
+      current: map['current'] ?? '',
+    );
   }
 
   String toJson() => json.encode(toMap());

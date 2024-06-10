@@ -120,7 +120,8 @@ class FirestoreRepo {
                   tolerans: categoryModel.tolerans,
                   valueE: categoryModel.valueE,
                   voltage: categoryModel.voltage,
-                  watt: categoryModel.watt)
+                  watt: categoryModel.watt,
+                  current: categoryModel.current)
               .toMap());
     } catch (e) {
       // Hata durumunda işlemi ele al

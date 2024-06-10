@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:katot_elektronik/screens/users/login_screen.dart';
-import 'package:katot_elektronik/screens/users/register_screen.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -20,41 +18,70 @@ class _HomepageState extends State<Homepage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => RegisterScreen(),
-                    ));
-              },
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "İŞ TAKİP",
-                  style: TextStyle(color: Colors.black, fontSize: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Card1",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1),
+                      color: Colors.red,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  width: 150,
+                  height: 150,
                 ),
-                decoration: BoxDecoration(
-                    border: Border.all(width: 1),
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.all(Radius.circular(80))),
-                width: 300,
-                height: 200,
-                margin: EdgeInsets.only(bottom: 20),
-              ),
+                SizedBox(width: 20),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Card2",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1),
+                      color: Colors.green,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  width: 150,
+                  height: 150,
+                ),
+              ],
             ),
-            Container(
-              alignment: Alignment.center,
-              child: Text(
-                "STOK TAKİP",
-                style: TextStyle(color: Colors.black, fontSize: 50),
-              ),
-              decoration: BoxDecoration(
-                  border: Border.all(width: 1),
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.all(Radius.circular(80))),
-              width: 300,
-              height: 200,
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Card3",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1),
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  width: 150,
+                  height: 150,
+                ),
+                SizedBox(width: 20),
+                Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Card4",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 1),
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  width: 150,
+                  height: 150,
+                ),
+              ],
             ),
           ],
         ),

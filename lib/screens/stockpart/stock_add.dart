@@ -24,6 +24,7 @@ class _StockAddState extends State<StockAdd> {
   final TextEditingController _wattController = TextEditingController();
   final TextEditingController _toleransController = TextEditingController();
   final TextEditingController _footPrintController = TextEditingController();
+  final TextEditingController _currentController = TextEditingController();
 
   final List<File> _imageFiles = [];
 
@@ -40,6 +41,7 @@ class _StockAddState extends State<StockAdd> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1.0,
         title: Text("Stok Ekle"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
@@ -56,6 +58,9 @@ class _StockAddState extends State<StockAdd> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
                 TextFormField(
                   controller: _titleController,
                   decoration: InputDecoration(
@@ -185,34 +190,116 @@ class _StockAddState extends State<StockAdd> {
                   },
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                TextFormField(
+                  controller: _currentController,
+                  decoration: InputDecoration(
+                      labelText: "Current",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      contentPadding: const EdgeInsets.all(18)),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Lütfen bir Current girin';
+                    }
+                    return null;
+                  },
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      minimumSize: MaterialStateProperty.all<Size>(
+                        Size(MediaQuery.of(context).size.width * 0.30,
+                            MediaQuery.of(context).size.height * 0.06),
+                      ),
+                      side: MaterialStateProperty.all<BorderSide>(
+                        BorderSide(
+                          width: MediaQuery.of(context).size.width * 0.003,
+                          color: Colors.black, // Çerçeve rengi
+                        ),
+                      ),
+                      elevation: const MaterialStatePropertyAll(5)),
                   onPressed: () => _pickImage(ImageSource.camera),
-                  child: const Text('Kameradan Fotoğraf Yükle'),
-                ),
-                ElevatedButton(
-                  onPressed: () => _pickImage(ImageSource.gallery),
-                  child: const Text('Galeriden Fotoğraf Yükle'),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                if (_imageFiles.isNotEmpty)
-                  GridView.builder(
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      crossAxisSpacing: 5,
-                      mainAxisSpacing: 3,
-                    ),
-                    itemCount: _imageFiles.length,
-                    itemBuilder: (context, index) {
-                      return Image.file(
-                        _imageFiles[index],
-                        fit: BoxFit.cover,
-                      );
-                    },
+                  child: const Text(
+                    'Kameradan Fotoğraf Yükle',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      minimumSize: MaterialStateProperty.all<Size>(
+                        Size(MediaQuery.of(context).size.width * 0.30,
+                            MediaQuery.of(context).size.height * 0.06),
+                      ),
+                      side: MaterialStateProperty.all<BorderSide>(
+                        BorderSide(
+                          width: MediaQuery.of(context).size.width * 0.003,
+                          color: Colors.black, // Çerçeve rengi
+                        ),
+                      ),
+                      elevation: const MaterialStatePropertyAll(5)),
+                  onPressed: () => _pickImage(ImageSource.gallery),
+                  child: const Text(
+                    'Galeriden Fotoğraf Yükle',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+                if (_imageFiles.isNotEmpty)
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+                GridView.builder(
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                  ),
+                  itemCount: _imageFiles.length,
+                  itemBuilder: (context, index) {
+                    return Image.file(
+                      _imageFiles[index],
+                      fit: BoxFit.cover,
+                    );
+                  },
+                ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.black),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+                      minimumSize: MaterialStateProperty.all<Size>(
+                        Size(MediaQuery.of(context).size.width * 0.30,
+                            MediaQuery.of(context).size.height * 0.06),
+                      ),
+                      side: MaterialStateProperty.all<BorderSide>(
+                        BorderSide(
+                          width: MediaQuery.of(context).size.width * 0.003,
+                          color: Colors.black, // Çerçeve rengi
+                        ),
+                      ),
+                      elevation: const MaterialStatePropertyAll(5)),
                   onPressed: () {
                     if (_formKey.currentState!.validate() &&
                         _imageFiles.isNotEmpty) {
@@ -231,6 +318,7 @@ class _StockAddState extends State<StockAdd> {
                                 image: null,
                                 title: _titleController.text,
                                 stockId: _idController.text,
+                                current: _currentController.text,
                               ),
                               imageFile: _imageFiles[0],
                             ),
@@ -239,7 +327,11 @@ class _StockAddState extends State<StockAdd> {
                       Navigator.pop(context);
                     }
                   },
-                  child: const Text('Kaydet'),
+                  child: const Text(
+                    'Kaydet',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),

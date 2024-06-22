@@ -20,16 +20,20 @@ class _JobTrackingState extends State<JobTracking> {
       child: Scaffold(
         body: Stack(
           children: [
-            // Background Container
-            // Container(
-            //   decoration: BoxDecoration(
-            //     image: DecorationImage(
-            //       image: AssetImage('assets/background.jpg'),
-            //       fit: BoxFit.cover,
-            //     ),
-            //   ),
-            // ),
-            // Main content
+            Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFF8F6E3),
+                    Color(0xFFD0E8F2),
+                    Color(0xFF79A3B1),
+                    Color(0xFF456268),
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+            ),
             BlocBuilder<JobtrackingBloc, JobtrackingState>(
               builder: (context, state) {
                 if (state is JobtrackingInitial) {

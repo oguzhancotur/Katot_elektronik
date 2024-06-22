@@ -38,8 +38,9 @@ class JobTrackingCard extends StatelessWidget {
             context: context,
             builder: (context) {
               return Container(
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromARGB(96, 8, 123, 108)),
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Container(
@@ -72,35 +73,59 @@ class JobTrackingCard extends StatelessWidget {
                               color: Colors.black,
                               thickness: 1,
                             ),
-                            Text(
-                              "İş Başlığı : ${title}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "İş Başlığı : ${title}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
-                            Text(
-                              "İş Yapılan Kurum : ${corporation}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "İş Yapılan Kurum : ${corporation}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
-                            Text(
-                              "Açıklama : ${explanation}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Açıklama : ${explanation}",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20),
+                                ),
+                              ),
                             ),
                             SizedBox(
                               height: MediaQuery.of(context).size.height * 0.01,

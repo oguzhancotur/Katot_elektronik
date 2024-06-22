@@ -73,6 +73,10 @@ flutter:
     - assets/istakip.png
     - assets/login.png
     - assets/logo.png
+    - assets/card1.png
+    - assets/card2.png
+    - assets/card3.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

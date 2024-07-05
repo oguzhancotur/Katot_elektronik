@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:katot_elektronik/bloc/notebloc/note_event.dart';
+import 'package:katot_elektronik/models/note_model.dart';
 
 class NoteService {
   final firebaseStorageInstance =
@@ -22,14 +24,14 @@ class NoteService {
     await _notesCollection.doc(id).delete();
   }
 
-  Future<List<Map<String, dynamic>>> getNotes() async {
+  Future<List<NoteModel>> getNotes() async {
     final QuerySnapshot querySnapshot = await _notesCollection.get();
-    final List<Map<String, dynamic>> notesList = [];
-
-    querySnapshot.docs.forEach((doc) {
-      notesList.add(doc.data() as Map<String, dynamic>);
-    });
-
-    return notesList;
+    return querySnapshot.docs.map((doc) {
+      return NoteModel(
+        id: doc.id,
+        title: doc['title'],
+        content: doc['content'],
+      );
+    }).toList();
   }
 }

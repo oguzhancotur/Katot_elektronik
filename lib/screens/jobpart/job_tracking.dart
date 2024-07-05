@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_bloc.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_event.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_state.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_bloc.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_event.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_state.dart';
 import 'package:katot_elektronik/widgets/job_tracking_card.dart';
 import 'package:katot_elektronik/screens/jobpart/job_add.dart';
 

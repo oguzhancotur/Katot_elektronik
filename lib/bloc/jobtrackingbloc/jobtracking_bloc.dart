@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_event.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_state.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_event.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_state.dart';
 import 'package:katot_elektronik/models/job_tracking_model.dart';
 import 'package:katot_elektronik/repository/firebase_repo.dart';
 

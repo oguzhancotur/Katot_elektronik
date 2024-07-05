@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_bloc.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_event.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_bloc.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_event.dart';
 
 class JobTrackingCard extends StatelessWidget {
   List<String> image;

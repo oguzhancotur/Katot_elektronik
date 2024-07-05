@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_bloc.dart';
-import 'package:katot_elektronik/bloc/jobtrackingblog/jobtracking_event.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_bloc.dart';
+import 'package:katot_elektronik/bloc/jobtrackingbloc/jobtracking_event.dart';
 import 'package:katot_elektronik/models/job_tracking_model.dart';
 
 class JobAdd extends StatefulWidget {

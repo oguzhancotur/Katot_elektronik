@@ -43,15 +43,15 @@ class CustomCard extends StatelessWidget {
             Image.asset(
               imagePath,
               fit: BoxFit.contain,
-              height: 120,
+              height: MediaQuery.of(context).size.height * 0.14,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Text(
               title,
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 18,
+                fontSize: MediaQuery.of(context).size.height * 0.02,
               ),
             ),
           ],

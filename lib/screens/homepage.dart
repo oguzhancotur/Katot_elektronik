@@ -22,13 +22,18 @@ class _HomepageState extends State<Homepage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Image.asset(
                 "assets/logo.png", // Logo
                 scale: 3.3,
               ),
-              Text("Katot Elektronik Anasayfasına Hoşgeldiniz"),
-              SizedBox(height: 20),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              Text(
+                textAlign: TextAlign.center,
+                "Katot Elektronik Anasayfasına Hoşgeldiniz",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
@@ -60,7 +65,7 @@ class _HomepageState extends State<Homepage> {
                     ),
                     CustomCard(
                       title: "Not Defteri",
-                      imagePath: "assets/card3.png",
+                      imagePath: "assets/card4.png",
                       onTap: () {
                         // Not Defteri sayfasına yönlendirme
                       },

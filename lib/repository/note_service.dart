@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:katot_elektronik/bloc/notebloc/note_event.dart';
 import 'package:katot_elektronik/models/note_model.dart';
 
 class NoteService {

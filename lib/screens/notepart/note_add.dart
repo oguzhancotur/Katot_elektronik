@@ -85,23 +85,23 @@ class _NoteAddState extends State<NoteAdd> {
                 ElevatedButton(
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.black),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          WidgetStateProperty.all<Color>(Colors.black),
+                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                      minimumSize: MaterialStateProperty.all<Size>(
+                      minimumSize: WidgetStateProperty.all<Size>(
                         Size(MediaQuery.of(context).size.width * 0.30,
                             MediaQuery.of(context).size.height * 0.06),
                       ),
-                      side: MaterialStateProperty.all<BorderSide>(
+                      side: WidgetStateProperty.all<BorderSide>(
                         BorderSide(
                           width: MediaQuery.of(context).size.width * 0.003,
                           color: Colors.black, // Çerçeve rengi
                         ),
                       ),
-                      elevation: const MaterialStatePropertyAll(5)),
+                      elevation: const WidgetStatePropertyAll(5)),
                   onPressed: () {},
                   child: const Text(
                     'Kaydet',

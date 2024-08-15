@@ -36,5 +36,5 @@ class MyApp extends StatelessWidget {
       ),
       home: MainScreen(),
     );
-  }
+  } //mainden eleveted bottom ı tema seklinde ayarla
 }

@@ -36,110 +36,114 @@ class JobTrackingCard extends StatelessWidget {
         onTap: () {
           showModalBottomSheet(
             context: context,
+            isScrollControlled: true,
             builder: (context) {
-              return Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Color.fromARGB(96, 8, 123, 108)),
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.5,
+              return FractionallySizedBox(
+                heightFactor: 0.70,
                 child: Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Container(
-                          child: Column(children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text("- İŞ DETAY -",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.red,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20)),
-                                IconButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    icon: Icon(Icons.close))
-                              ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text("- İŞ DETAY -",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20)),
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: Icon(Icons.close),
                             ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
+                          ],
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
+                        ),
+                        const Divider(
+                          color: Colors.black,
+                          thickness: 1,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "İş Başlığı : $title",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "İş Yapılan Kurum : $corporation",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Açıklama : $explanation",
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
+                        ),
+                        Text(
+                          "İş Durumu : $state",
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: GridView.builder(
+                            shrinkWrap: true,
+                            physics:
+                                NeverScrollableScrollPhysics(), // GridView'in kendi kaydırılmasını kapatır
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              crossAxisSpacing: 5.0,
+                              mainAxisSpacing: 5.0,
                             ),
-                            Divider(
-                              color: Colors.black,
-                              thickness: 1,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "İş Başlığı : ${title}",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "İş Yapılan Kurum : ${corporation}",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Açıklama : ${explanation}",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.01,
-                            ),
-                            Text(
-                              "İş Durumu : ${state}",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.red,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20),
-                            ),
-                          ]),
-                        )
+                            itemCount: image.length,
+                            itemBuilder: (context, index) {
+                              return Image.network(
+                                image[index],
+                                fit: BoxFit.cover,
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -149,16 +153,16 @@ class JobTrackingCard extends StatelessWidget {
           );
         },
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.90,
+          width: MediaQuery.of(context).size.width * 0.92,
           height: MediaQuery.of(context).size.height * 0.18,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
+            borderRadius: BorderRadius.circular(25),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.35),
                 spreadRadius: 1,
                 blurRadius: 3,
-                offset: Offset(0, 2),
+                offset: const Offset(0, 2),
               ),
             ],
             gradient: const LinearGradient(
@@ -204,7 +208,7 @@ class JobTrackingCard extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.032),
+                                    MediaQuery.of(context).size.width * 0.025),
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -212,12 +216,12 @@ class JobTrackingCard extends StatelessWidget {
                               height:
                                   MediaQuery.of(context).size.height * 0.01),
                           Text(
-                            "Durum : ${state}",
-                            style: TextStyle(
+                            "Durum : $state",
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                           ),
-                          Text(
+                          const Text(
                             "Devamını gör =>",
                             style: TextStyle(
                               color: Colors.black,
@@ -235,13 +239,13 @@ class JobTrackingCard extends StatelessWidget {
                               context: context,
                               builder: (context) => AlertDialog(
                                 backgroundColor: Colors.white,
-                                title:
-                                    Text("Silmek istediğinize emin misiniz ?",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                content: Text("Bu işlem geri alınamaz!",
+                                title: const Text(
+                                    "Silmek istediğinize emin misiniz ?",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                content: const Text("Bu işlem geri alınamaz!",
                                     style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -250,19 +254,19 @@ class JobTrackingCard extends StatelessWidget {
                                   TextButton(
                                       style: ButtonStyle(
                                           backgroundColor:
-                                              MaterialStateProperty.all(
+                                              WidgetStateProperty.all(
                                                   Colors.green)),
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text("İptal",
+                                      child: const Text("İptal",
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontWeight: FontWeight.bold))),
                                   TextButton(
                                       style: ButtonStyle(
                                           backgroundColor:
-                                              MaterialStateProperty.all(
+                                              WidgetStateProperty.all(
                                                   Colors.red)),
                                       onPressed: () {
                                         context
@@ -270,7 +274,7 @@ class JobTrackingCard extends StatelessWidget {
                                             .add(DeleteJobEvent(jobId: jobId));
                                         Navigator.pop(context);
                                       },
-                                      child: Text(
+                                      child: const Text(
                                         "Sil",
                                         style: TextStyle(
                                             color: Colors.white,
@@ -288,7 +292,7 @@ class JobTrackingCard extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.01,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.edit,
                           color: Colors.white,
                         )
